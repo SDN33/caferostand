@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Reservations from './pages/Reservations';
 import Menu from './pages/Menu';
 import Contact from './pages/Contact';
+import CarteBoissons from './pages/CarteBoissons';
 import { ThemeProvider } from './context/ThemeContext';
 import Footer from './components/Footer';
 
@@ -18,6 +19,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/reservations" element={<Reservations />} />
             <Route path="/menu" element={<Menu />} />
+            <Route path="/carte-boissons" element={<CarteBoissons />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
