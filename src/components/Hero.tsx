@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
 
             {/* TheFork badge */}
             <a
-              href={profile.links?.theFork || '#'}
+              href="https://www.thefork.fr/restaurant/le-cafe-rostand-r825338"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Voir les avis sur TheFork"
