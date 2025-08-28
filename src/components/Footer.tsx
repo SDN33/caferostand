@@ -125,11 +125,19 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-gray-800 pt-6 text-center">
-          <p className="text-gray-400 text-sm mb-2">Template créé par</p>
-          <a href="https://stillinov.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gold hover:text-gold/80 transition-colors duration-300 font-medium">
-            Still-inov Agency
-            <ExternalLink className="h-4 w-4 ml-2" />
-          </a>
+          <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4">
+            <div className="mb-2 md:mb-0 text-sm text-gray-400">
+              © {new Date().getFullYear()} Café Rostand — Tous droits réservés.<br />
+              2 Place Henri Bos, 33185 Le Haillan — Tél : <a href="tel:+33556780000" className="text-gold hover:text-gold/80">05 56 78 00 00</a>
+            </div>
+            <div className="text-sm">
+              Propulsé par{' '}
+              <a href="https://stillinov.com" target="_blank" rel="noopener noreferrer" className="text-gold hover:text-gold/80 font-medium inline-flex items-center">
+                Still-inov Agency
+                <ExternalLink className="h-4 w-4 ml-2" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
