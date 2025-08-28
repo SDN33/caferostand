@@ -33,25 +33,11 @@ const Partners: React.FC = () => {
           <p className="text-lg text-white max-w-2xl mx-auto">Fidèles à notre volonté de soutenir les artisans et commerçants locaux, nous mettons en avant ceux qui partagent nos valeurs.</p>
         </div>
 
-        {/* Auto-scrolling partners marquee. Cards keep fixed width/height; text scrolls inside if long. */}
-        <div className="overflow-hidden">
-          <style>{`
-            @keyframes marquee {
-              0% { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .marquee {
-              display: flex;
-              gap: 1.5rem;
-              align-items: stretch;
-              animation: marquee 24s linear infinite;
-            }
-            .marquee:hover { animation-play-state: paused; }
-          `}</style>
-
-          <div className="marquee">
-            {[...partners, ...partners].map((p, i) => (
-              <div key={i} className="flex-shrink-0 w-80 sm:w-96 h-72">
+        {/* Slider manuel des partenaires */}
+        <div className="overflow-x-auto scroll-snap-x scroll-snap-mandatory pb-4">
+          <div className="flex gap-6 lg:gap-8 items-stretch">
+            {partners.map((p, i) => (
+              <div key={i} className="flex-shrink-0 w-80 sm:w-96 h-72 scroll-snap-align-start">
                 <div className="rounded-xl overflow-hidden p-4 h-full flex flex-col bg-black/80 border border-gray-800 backdrop-blur-sm shadow-lg">
                   <div className="mb-3 h-32 flex items-center justify-center overflow-hidden rounded-md bg-black/60">
                     <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
