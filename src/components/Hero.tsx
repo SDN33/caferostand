@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-4xl">
         <ScrollAnimation animation="fadeInUp" delay={100}>
-            <div className="mx-auto mb-4 hidden sm:block">
+            <div className="mx-auto hidden sm:block">
             <img
               src="https://static.wixstatic.com/media/e5f698_098b4b72d5694dcfbe491ac6795a02da~mv2.png/v1/fill/w_266,h_266,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20ROSTAND.png"
               alt="Logo Café Rostand"
