@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-shadow-lg {
+    text-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Handwritten / script font utility */
+  .font-handwritten {
+    font-family: 'Dancing Script', 'Georgia', 'Times New Roman', serif;
+  }
+
+  /* Hide scrollbar for mobile horizontal scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;     /* Firefox */
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;             /* Safari and Chrome */
+  }
+
+  /* Smooth scroll behavior for mobile */
+  .scrollbar-hide {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Custom responsive breakpoint */
+  @screen xs {
+    /* Extra small devices */
+  }
+}
