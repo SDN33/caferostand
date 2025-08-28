@@ -29,7 +29,7 @@ const Footer = () => {
             <h4 className="text-lg font-medium mb-4 text-cream-light">Suivez-nous</h4>
             <div className="flex justify-center space-x-4">
               <a
-                href={profile.links?.instagram}
+                href="https://www.instagram.com/lecaferostandoff/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gold/10 hover:bg-gold/20 rounded-full transition-colors duration-300"
@@ -38,7 +38,7 @@ const Footer = () => {
                 <Instagram className="h-5 w-5 text-gold" />
               </a>
               <a
-                href={profile.links?.facebook}
+                href="https://www.facebook.com/lecaferostand"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-gold/10 hover:bg-gold/20 rounded-full transition-colors duration-300"

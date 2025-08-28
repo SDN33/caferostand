@@ -19,6 +19,7 @@ const Navigation = () => {
   const navLinks = [
     { path: '/', label: 'Accueil' },
     { path: '/menu', label: 'Carte' },
+    { path: '/carte-boissons', label: 'Boissons' },
     { path: '/reservations', label: 'Réserver' },
     { path: '/contact', label: 'Contact' }
   ];

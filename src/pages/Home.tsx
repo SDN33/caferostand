@@ -12,11 +12,14 @@ const Home = () => {
     <div>
       {/* Floating section navigator */}
       <SectionNavigator 
-        sections={[
+        sections={[ 
           { id: 'section-hero', label: 'Accueil' },
           { id: 'section-story', label: 'Notre Histoire' },
           { id: 'section-creations', label: 'Nos Créations' },
+          { id: 'section-cocktails', label: 'Cocktails' },
           { id: 'section-reservation', label: 'Réserver' },
+          { id: 'section-group-events', label: 'Événements' },
+          { id: 'section-partners', label: 'Partenaires' },
         ]}
         offset={72} // approx navbar height
       />
