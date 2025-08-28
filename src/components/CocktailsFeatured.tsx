@@ -13,7 +13,7 @@ const CocktailsFeatured = () => {
 
             <div>
               <ScrollAnimation animation="fadeInUp">
-          <h2 className="text-3xl sm:text-4xl font-serif font-light tracking-wide mb-4 text-gold">Découvrez des cocktails d'exception — un mot de notre mixologue</h2>
+          <h2 className="text-3xl sm:text-4xl font-serif font-light tracking-wide mb-4 text-gold">Découvrez des cocktails d'exception... Un mot de notre mixologue</h2>
             <blockquote className="text-lg text-gray-300 italic leading-relaxed">“Au fil de mes voyages, j'ai appris à marier ingrédients, textures et couleurs pour créer des cocktails qui surprennent et transportent. Chaque recette puise son inspiration dans une rencontre, un terroir ou une saison, et vise à éveiller vos sens. Je vous invite à goûter ces créations — voyage et émotion au rendez‑vous.”</blockquote>
             <p className="mt-6 font-medium text-gray-200">— Audrey</p>
               </ScrollAnimation>

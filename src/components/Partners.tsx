@@ -33,20 +33,40 @@ const Partners: React.FC = () => {
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">Fidèles à notre volonté de soutenir les artisans et commerçants locaux, nous mettons en avant ceux qui partagent nos valeurs.</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {partners.map((p, i) => (
-            <ScrollAnimation key={i} animation="fadeInUp" delay={100 * i}>
-        <div className="rounded-xl shadow-lg overflow-hidden p-6 h-full flex flex-col bg-white/95 dark:bg-black/60 border border-gray-100 dark:border-gray-800 backdrop-blur-sm">
-          <div className="mb-4 h-44 flex items-center justify-center overflow-hidden rounded-md bg-gray-100 dark:bg-black/50">
-                  <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
-                </div>
-                <div className="flex-1 flex flex-col items-center justify-center text-center">
-                  <h3 className="text-lg sm:text-xl font-medium text-black dark:text-cream-light mb-2">{p.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">{p.text}</p>
+        {/* Auto-scrolling partners marquee. Cards keep fixed width/height; text scrolls inside if long. */}
+        <div className="overflow-hidden">
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee {
+              display: flex;
+              gap: 1.5rem;
+              align-items: stretch;
+              animation: marquee 24s linear infinite;
+            }
+            .marquee:hover { animation-play-state: paused; }
+          `}</style>
+
+          <div className="marquee">
+            {[...partners, ...partners].map((p, i) => (
+              <div key={i} className="flex-shrink-0 w-80 sm:w-96 h-72">
+                <div className="rounded-xl overflow-hidden p-4 h-full flex flex-col bg-white/95 dark:bg-black/60 border border-gray-100 dark:border-gray-800 backdrop-blur-sm shadow-lg">
+                  <div className="mb-3 h-32 flex items-center justify-center overflow-hidden rounded-md bg-gray-100 dark:bg-black/50">
+                    <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+                  </div>
+
+                  <div className="flex-1 flex flex-col text-left">
+                    <h3 className="text-lg sm:text-xl font-medium text-black dark:text-cream-light mb-2">{p.title}</h3>
+                    <div className="text-gray-600 dark:text-gray-300 leading-relaxed overflow-auto max-h-24 pr-2 whitespace-pre-line">
+                      {p.text}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </ScrollAnimation>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
