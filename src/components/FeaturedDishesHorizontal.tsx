@@ -117,13 +117,11 @@ const FeaturedDishesHorizontal = () => {
                 </div>
               </div>
             </div>
-            <div className="p-4 sm:p-8 lg:p-10">
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-medium text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
+            <div className="p-4 sm:p-8 lg:p-10 mb-8">
+              <h3 className="text-lg sm:text-xl lg:text-lg font-serif font-medium text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
                 {dish.name}
               </h3>
-              <p className="text-gray-300 leading-relaxed font-light text-lg lg:text-xl mb-4 sm:mb-0">
-                {dish.description}
-              </p>
+              {/* Description retirée */}
               <button className="w-full sm:w-auto mt-4 sm:mt-6 bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-base lg:text-lg">
                 Commander
               </button>
@@ -140,10 +138,11 @@ const FeaturedDishesHorizontal = () => {
   <div className="px-4 sm:px-6 lg:px-8 pt-4 pb-16 sm:pt-6 sm:pb-20 bg-gradient-to-b from-black via-black to-black">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollAnimation animation="fadeInUp">
-            <h3 className="text-3xl sm:text-4xl font-serif font-light tracking-wide mb-4 sm:mb-6">
+            <h3 className="text-xl sm:text-2xl font-serif font-light tracking-wide mb-4 sm:mb-6">
               Une Carte d’Exception
             </h3>
           </ScrollAnimation>
+          <br />
           <ScrollAnimation animation="fadeInUp" delay={150}>
             <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-light max-w-3xl mx-auto mb-6 sm:mb-8 px-2">
               De la mer à la terre, notre carte célèbre les produits de saison, sublimés par des
