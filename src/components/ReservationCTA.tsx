@@ -56,13 +56,22 @@ const ReservationCTA = () => {
         </div>
 
         <ScrollAnimation animation="scaleIn" delay={600}>
-          <button
-            onClick={() => profile.links?.theFork && window.open(profile.links.theFork, '_blank', 'noopener,noreferrer')}
-            className="inline-block bg-gold hover:bg-gold/90 text-black px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-full w-full max-w-xs sm:w-auto"
-          >
-            <span className="sm:hidden">RÉSERVER</span>
-            <span className="hidden sm:inline">RÉSERVER MAINTENANT</span>
-          </button>
+          <div className="flex flex-row gap-4 items-center justify-center w-full sm:w-auto">
+            <button
+              onClick={() => profile.links?.theFork && window.open(profile.links.theFork, '_blank', 'noopener,noreferrer')}
+              className="inline-block bg-gold hover:bg-gold/90 text-black px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-full w-full max-w-xs sm:w-auto"
+            >
+              <span className="sm:hidden">RÉSERVER</span>
+              <span className="hidden sm:inline">RÉSERVER MAINTENANT</span>
+            </button>
+            <button
+              onClick={() => profile.links?.theFork && window.open(profile.links.theFork, '_blank', 'noopener,noreferrer')}
+              className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-full w-full max-w-xs sm:w-auto"
+            >
+              <img src="https://play-lh.googleusercontent.com/-YJLx_Itkfi-13ljoVKocZ3HmhTfEGuaNqa9kQwSeLWmMTgaSYM9kGW6RWpyE84iR4w" alt="TheFork" className="h-6 w-6 object-contain" />
+              <span>Via The Fork</span>
+            </button>
+          </div>
         </ScrollAnimation>
       </div>
     </section>
