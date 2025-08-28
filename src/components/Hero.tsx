@@ -85,6 +85,28 @@ const Hero: React.FC = () => {
             <Link to="/menu" className="inline-block border-2 border-white/30 text-white px-6 py-3 rounded-full hover:bg-white/10 transition-colors duration-200">
               Voir la carte
             </Link>
+
+            {/* TheFork badge */}
+            <a
+              href={profile.links?.theFork || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Voir les avis sur TheFork"
+              className="inline-flex items-center gap-3 bg-black/70 hover:bg-black/80 border border-gold/30 px-4 py-2 rounded-full shadow-lg"
+            >
+              <div className="flex flex-col items-start leading-tight">
+                <div className="text-2xl font-bold text-gold">9<span className="text-base text-white">/10</span></div>
+                <div className="text-xs text-gray-200">Excellent • <span className="font-semibold">253 avis</span></div>
+              </div>
+              <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/10 rounded-md overflow-hidden">
+                <img
+                  src="https://play-lh.googleusercontent.com/-YJLx_Itkfi-13ljoVKocZ3HmhTfEGuaNqa9kQwSeLWmMTgaSYM9kGW6RWpyE84iR4w"
+                  alt="TheFork logo"
+                  className="w-full h-full object-contain"
+                  title="Voir les avis sur TheFork"
+                />
+              </div>
+            </a>
           </div>
         </ScrollAnimation>
 
