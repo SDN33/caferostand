@@ -88,7 +88,7 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 max-w-xl mx-auto">
             {/* Google */}
             <a
-              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.address?.full ?? "")}`}
+              href="https://share.google/me96bLFkIyjLUZATH"
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-2 hover:scale-105 transition-all duration-300"
@@ -96,28 +96,19 @@ const Footer = () => {
               <img src="https://www.ecrivus-multimedia.nl/wp-content/uploads/2023/11/png-transparent-logo-google-customer-service-review-google.png" alt="Google" className="h-6 w-6 object-contain" />
               <div className="flex items-center gap-1">
                 <span className="text-yellow-400 text-xs">⭐⭐⭐⭐⭐</span>
-                <span className="text-white text-sm font-medium">4.8</span>
-                <span className="text-gray-400 text-xs">(432)</span>
+                <span className="text-white text-sm font-medium">4.5</span>
+                <span className="text-gray-400 text-xs">(989)</span>
               </div>
             </a>
 
-            {/* TripAdvisor */}
-            <a href="https://www.tripadvisor.fr/Restaurant_Review-g187147-d12345678-Reviews-Restaurant_Lumiere.html" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-2 hover:scale-105 transition-all duration-300">
-              <img src="https://e7.pngegg.com/pngimages/45/825/png-clipart-tripadvisor-travel-seminyak-hotel-rosso-vino-italian-restaurant-travel-text-logo.png" alt="TripAdvisor" className="h-6 w-6 object-contain" />
-              <div className="flex items-center gap-1">
-                <span className="text-yellow-400 text-xs">⭐⭐⭐⭐⭐</span>
-                <span className="text-white text-sm font-medium">4.9</span>
-                <span className="text-gray-400 text-xs">(287)</span>
-              </div>
-            </a>
 
             {/* TheFork */}
             <button onClick={() => profile.links?.theFork && window.open(profile.links.theFork, '_blank', 'noopener,noreferrer')} className="group flex items-center gap-2 hover:scale-105 transition-all duration-300">
               <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/The_fork_logo.png" alt="TheFork" className="h-6 w-6 object-contain" />
               <div className="flex items-center gap-1">
                 <span className="text-yellow-400 text-xs">⭐⭐⭐⭐⭐</span>
-                <span className="text-white text-sm font-medium">4.7</span>
-                <span className="text-gray-400 text-xs">(156)</span>
+                <span className="text-white text-sm font-medium">9/10</span>
+                <span className="text-gray-400 text-xs">(253)</span>
               </div>
             </button>
           </div>

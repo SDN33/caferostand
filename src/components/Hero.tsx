@@ -53,10 +53,11 @@ const Hero: React.FC = () => {
             <img
               src="https://static.wixstatic.com/media/e5f698_098b4b72d5694dcfbe491ac6795a02da~mv2.png/v1/fill/w_266,h_266,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO%20ROSTAND.png"
               alt="Logo Café Rostand"
-              className="h-24 w-24 rounded-full object-contain shadow-md mx-auto"
+              className="h-32 w-32 rounded-full object-contain shadow-md mx-auto"
             />
             </div>
         </ScrollAnimation>
+
 
         <ScrollAnimation animation="fadeInUp" delay={200}>
             <div className="mt-10 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 text-xs tracking-widest uppercase">
