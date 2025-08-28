@@ -22,10 +22,10 @@ const Menu = () => {
   });
 
   return (
-    <div className="pt-20 pb-12">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div className="pt-20 pb-12 bg-black text-white">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+  <div className="text-center mb-16">
           <h1 className="text-4xl lg:text-5xl font-thin tracking-wider font-serif text-gold mb-6">
             NOTRE CARTE
           </h1>
