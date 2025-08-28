@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollAnimation from './ScrollAnimations';
+import ParallaxImage from './ParallaxImage';
 
 const GroupEvents: React.FC = () => {
   return (
@@ -28,6 +29,20 @@ const GroupEvents: React.FC = () => {
             <p className="mt-4">La décoration chaleureuse et personnalisable s’adapte à vos envies pour créer un moment unique.</p>
 
             <p className="mt-4 font-semibold">Merci de nous contacter au moins 10 jours avant votre événement. Nos équipes sont à votre écoute pour composer le menu et l’ambiance qui vous ressemblent.</p>
+
+            {/* Ajout des photos repas de groupe avec effet parallax */}
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <ParallaxImage
+                src="https://static.wixstatic.com/media/e5f698_e6ec5898785542c4a2f12b0c85d6c817~mv2.jpg/v1/fill/w_618,h_626,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/IMG_2429.jpg"
+                alt="Repas de groupe 1"
+                speed={0.3}
+              />
+              <ParallaxImage
+                src="https://static.wixstatic.com/media/e5f698_fdc1b23f480645b99688b70b25960a26~mv2.jpg/v1/fill/w_804,h_626,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/e5f698_fdc1b23f480645b99688b70b25960a26~mv2.jpg"
+                alt="Repas de groupe 2"
+                speed={0.3}
+              />
+            </div>
           </div>
         </ScrollAnimation>
       </div>
