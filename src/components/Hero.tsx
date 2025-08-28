@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
         </ScrollAnimation>
 
         <ScrollAnimation animation="fadeInUp" delay={200}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 text-xs tracking-widest uppercase">
+            <div className="mt-14 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 text-xs tracking-widest uppercase">
             <span className="text-gold">★ ★ ★</span>
             <span>BRASSERIE - BISTROT </span>
             <span className="hidden sm:inline text-white/70">| {profile.address?.city || ''}</span>
@@ -74,15 +74,15 @@ const Hero: React.FC = () => {
         </ScrollAnimation>
 
         <ScrollAnimation animation="fadeInUp" delay={500}>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-row flex-wrap gap-2 sm:gap-4 justify-center items-center">
             <button
               onClick={openTheForkWidget}
-              className="inline-block bg-gold text-black font-semibold px-8 py-3 rounded-full shadow hover:scale-105 transition-transform duration-200"
+              className="inline-block bg-gold text-black font-semibold px-6 py-2 sm:px-8 sm:py-3 rounded-full shadow hover:scale-105 transition-transform duration-200"
             >
               Réserver
             </button>
 
-            <Link to="/menu" className="inline-block border-2 border-white/30 text-white px-6 py-3 rounded-full hover:bg-white/10 transition-colors duration-200">
+            <Link to="/menu" className="inline-block border-2 border-white/30 text-white px-5 py-2 sm:px-6 sm:py-3 rounded-full hover:bg-white/10 transition-colors duration-200">
               Voir la carte
             </Link>
 
@@ -92,13 +92,13 @@ const Hero: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Voir les avis sur TheFork"
-              className="inline-flex items-center gap-3 bg-black/70 hover:bg-black/80 border border-gold/30 px-4 py-2 rounded-full shadow-lg"
+              className="inline-flex items-center gap-2 sm:gap-3 bg-black/70 hover:bg-black/80 border border-gold/30 px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-lg"
             >
               <div className="flex flex-col items-start leading-tight">
-                <div className="text-2xl font-bold text-gold">9<span className="text-base text-white">/10</span></div>
+                <div className="text-lg sm:text-2xl font-bold text-gold">9<span className="text-base text-white">/10</span></div>
                 <div className="text-xs text-gray-200">Excellent • <span className="font-semibold">253 avis</span></div>
               </div>
-              <div className="hidden sm:flex items-center justify-center w-12 h-12 bg-white/10 rounded-md overflow-hidden">
+              <div className="hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-md overflow-hidden">
                 <img
                   src="https://play-lh.googleusercontent.com/-YJLx_Itkfi-13ljoVKocZ3HmhTfEGuaNqa9kQwSeLWmMTgaSYM9kGW6RWpyE84iR4w"
                   alt="TheFork logo"

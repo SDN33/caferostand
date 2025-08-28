@@ -21,15 +21,19 @@ const FeaturedDishesHorizontal = () => {
 
   const dishes = (menuItems as MenuItem[])
     .filter((item: MenuItem) => !!item.name && !!item.price)
-    .slice(0, 4)
+    .slice(0, 8)
     .map((item: MenuItem, idx: number) => {
       const name = (item.name || '').toString();
       const isOysters = /HUITRE|HUITRES/i.test(name);
       const isOeuf = name.trim().toUpperCase() === 'OEUF BÉNÉDICTE DU CHEF';
+      const isTartareDorade = name.trim().toUpperCase().includes('TARTARE DE DORADE À LA NECTARINE');
+      const isGravlax = name.trim().toUpperCase().includes('GRAVLAX DE SAUMON');
+      const tartareDoradeImage = 'https://www.cuisine-generation.fr/wp-content/uploads/2024/04/130420241712979517.png';
+      const gravlaxImage = 'https://lemust.ca/wp-content/uploads/2019/01/Salade-nordique-740x494.jpg';
       return {
         name: name,
         description: item.description || '',
-        image: isOeuf ? oeufImage : isOysters ? oysterImage : fallbackImages[idx % fallbackImages.length],
+        image: isGravlax ? gravlaxImage : isTartareDorade ? tartareDoradeImage : isOeuf ? oeufImage : isOysters ? oysterImage : fallbackImages[idx % fallbackImages.length],
         price: item.price || '',
         tags: item.tags || []
       };
@@ -48,74 +52,91 @@ const FeaturedDishesHorizontal = () => {
         </ScrollAnimation>
       </div>
 
-  <HorizontalScroll className="bg-black" containerHeight="100vh" align="end">
-        {dishes.map((dish, index) => (
-          <div 
-            key={index} 
-            className="flex-shrink-0 w-80 sm:w-96 h-[90vh] lg:h-[85vh] flex flex-col justify-center px-4 sm:px-8"
-          >
-            <div className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-gold/20 hover:border-gold/40 transition-all duration-700 hover:scale-105 shadow-2xl">
-              <div className="relative h-48 sm:h-64 overflow-hidden">
-                <img 
-                  src={dish.image}
-                  alt={dish.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-                
-                {/* Tags */}
-                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-2">
-                  {dish.tags.includes('signature') && (
-                    <span className="bg-gold text-black text-xs px-2 py-1 sm:px-3 sm:py-1 rounded-full font-medium flex items-center gap-1">
-                      <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                      <span className="hidden xs:inline">SIGNATURE</span>
-                      <span className="xs:hidden">★</span>
-                    </span>
-                  )}
-                  {dish.tags.includes('vegan') && (
-                    <span className="bg-green-500 text-white text-xs px-2 py-1 sm:px-3 sm:py-1 rounded-full font-medium flex items-center gap-1">
-                      <Leaf className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                      <span className="hidden xs:inline">VÉGAN</span>
-                      <span className="xs:hidden">🌱</span>
-                    </span>
-                  )}
-                </div>
-
-                {/* Price */}
-                <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
-                  <span className="bg-black/80 backdrop-blur-sm text-gold text-base sm:text-lg font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg">
-                    {dish.price}
+  <div className="relative">
+    {/* Gradient fade for desktop edges */}
+    <div className="pointer-events-none hidden lg:block absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-black via-black/80 to-transparent z-20" />
+    <div className="pointer-events-none hidden lg:block absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-black via-black/80 to-transparent z-20" />
+    <HorizontalScroll
+      className="bg-black overflow-x-auto scroll-snap-x scroll-snap-mandatory"
+      containerHeight="100vh"
+      align="end"
+    >
+      {dishes.map((dish, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-80 sm:w-96 lg:w-[520px] h-[90vh] lg:h-[80vh] flex flex-col justify-center px-4 sm:px-8 lg:px-12 scroll-snap-align-start"
+        >
+          <div className="group bg-gray-900/50 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-gold/20 hover:border-gold/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:z-10">
+            <div className="relative h-56 sm:h-72 lg:h-96 overflow-hidden">
+              <img
+                src={dish.image}
+                alt={dish.name}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              {/* Tags */}
+              <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-2">
+                {dish.tags.includes('signature') && (
+                  <span className="bg-gold text-black text-xs px-2 py-1 sm:px-3 sm:py-1 rounded-full font-medium flex items-center gap-1">
+                    <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                    <span className="hidden xs:inline">SIGNATURE</span>
+                    <span className="xs:hidden">★</span>
                   </span>
-                </div>
-
-                {/* Mobile swipe indicator */}
-                <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 sm:hidden">
-                  <div className="flex gap-1">
-                    <div className="w-2 h-0.5 bg-white/40 rounded-full animate-pulse"></div>
-                    <div className="w-6 h-0.5 bg-gold rounded-full"></div>
-                    <div className="w-2 h-0.5 bg-white/40 rounded-full animate-pulse delay-300"></div>
-                  </div>
-                </div>
+                )}
+                {dish.tags.includes('vegan') && (
+                  <span className="bg-green-500 text-white text-xs px-2 py-1 sm:px-3 sm:py-1 rounded-full font-medium flex items-center gap-1">
+                    <Leaf className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
+                    <span className="hidden xs:inline">VÉGAN</span>
+                    <span className="xs:hidden">🌱</span>
+                  </span>
+                )}
               </div>
-              
-              <div className="p-4 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-serif font-medium text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
-                  {dish.name}
-                </h3>
-                <p className="text-gray-300 leading-relaxed font-light text-base sm:text-lg mb-4 sm:mb-0">
-                  {dish.description}
-                </p>
-                
-                <button className="w-full sm:w-auto mt-4 sm:mt-6 bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-sm sm:text-base">
-                  Commander
-                </button>
+              {/* Price */}
+              <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                <span className="bg-black/80 backdrop-blur-sm text-gold text-base sm:text-lg font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg">
+                  {dish.price}
+                </span>
+              </div>
+              {/* Desktop scroll indicator (arrows) */}
+              {index === 0 && (
+                <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 z-30">
+                  <span className="text-gold text-3xl px-2">←</span>
+                </div>
+              )}
+              {index === dishes.length - 1 && (
+                <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 z-30">
+                  <span className="text-gold text-3xl px-2">→</span>
+                </div>
+              )}
+              {/* Mobile swipe indicator */}
+              <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 sm:hidden">
+                <div className="flex gap-1">
+                  <div className="w-2 h-0.5 bg-white/40 rounded-full animate-pulse"></div>
+                  <div className="w-6 h-0.5 bg-gold rounded-full"></div>
+                  <div className="w-2 h-0.5 bg-white/40 rounded-full animate-pulse delay-300"></div>
+                </div>
               </div>
             </div>
+            <div className="p-4 sm:p-8 lg:p-10">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-medium text-white mb-3 sm:mb-4 group-hover:text-gold transition-colors duration-300 leading-tight">
+                {dish.name}
+              </h3>
+              <p className="text-gray-300 leading-relaxed font-light text-lg lg:text-xl mb-4 sm:mb-0">
+                {dish.description}
+              </p>
+              <button className="w-full sm:w-auto mt-4 sm:mt-6 bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-base lg:text-lg">
+                Commander
+              </button>
+            </div>
           </div>
-        ))}
-      </HorizontalScroll>
+        </div>
+      ))}
+    </HorizontalScroll>
+  </div>
 
-      {/* Text highlight about the menu */}
+    <br />
+    <br />
+    {/* Text highlight about the menu */}
   <div className="px-4 sm:px-6 lg:px-8 pt-4 pb-16 sm:pt-6 sm:pb-20 bg-gradient-to-b from-black via-black to-black">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollAnimation animation="fadeInUp">
