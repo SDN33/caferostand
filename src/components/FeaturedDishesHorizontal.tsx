@@ -122,9 +122,9 @@ const FeaturedDishesHorizontal = () => {
                 {dish.name}
               </h3>
               {/* Description retirée */}
-              <button className="w-full sm:w-auto mt-4 sm:mt-6 bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-base lg:text-lg">
-                Commander
-              </button>
+              <Link to="/menu" className="w-full sm:w-auto mt-4 sm:mt-6 bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg text-base lg:text-lg text-center block">
+                Voir la carte
+              </Link>
             </div>
           </div>
         </div>
