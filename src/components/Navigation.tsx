@@ -25,6 +25,8 @@ const Navigation = () => {
     { path: '/contact', label: 'Contact' }
   ];
 
+  const currentTextClass = isScrolled ? (isDark ? 'text-cream-light' : 'text-black') : 'text-white dark:text-cream-light';
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
@@ -36,7 +38,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link 
             to="/" 
-            className="font-bold text-2xl text-white dark:text-cream-light tracking-wider hover:text-gold transition-colors duration-300 font-handwritten"
+            className={`font-bold text-2xl ${currentTextClass} tracking-wider hover:text-gold transition-colors duration-300 font-handwritten`}
           >
             {profile.shortName}
           </Link>
@@ -50,7 +52,7 @@ const Navigation = () => {
                 className={`font-medium transition-colors duration-300 hover:text-gold ${
                   location.pathname === link.path
                     ? 'text-gold border-b-2 border-gold'
-                    : 'text-white dark:text-cream-light'
+                    : currentTextClass
                 }`}
               >
                 {link.label}
@@ -63,18 +65,18 @@ const Navigation = () => {
       <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gold/10 transition-colors duration-300"
+              className={`p-2 rounded-full hover:bg-gold/10 transition-colors duration-300 ${currentTextClass}`}
             >
               {isDark ? (
-                <Sun className="h-5 w-5 text-cream-light" />
+                <Sun className="h-5 w-5" />
               ) : (
-        <Moon className="h-5 w-5 text-white" />
+                <Moon className="h-5 w-5" />
               )}
             </button>
             
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-white dark:text-cream-light hover:text-gold transition-colors duration-300"
+              className={`${currentTextClass} hover:text-gold transition-colors duration-300`}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -85,7 +87,7 @@ const Navigation = () => {
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-cream-light/95 dark:bg-black/95 backdrop-blur-md rounded-lg mt-2">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-cream-light/95 dark:bg-black/95 backdrop-blur-md rounded-lg mt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -94,7 +96,7 @@ const Navigation = () => {
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${
                   location.pathname === link.path
                     ? 'text-gold bg-gold/10'
-                    : 'text-white dark:text-cream-light hover:text-gold hover:bg-gold/5'
+                    : `${currentTextClass} hover:text-gold hover:bg-gold/5`
                 }`}
               >
                 {link.label}
