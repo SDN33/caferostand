@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { Menu, X } from 'lucide-react';
 import profile from '../brand/profile';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,12 +23,12 @@ const Navigation = () => {
     { path: '/contact', label: 'Contact' }
   ];
 
-  const currentTextClass = isScrolled ? (isDark ? 'text-cream-light' : 'text-black') : 'text-white dark:text-cream-light';
+  const currentTextClass = 'text-white';
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-cream-light/95 dark:bg-black/95 backdrop-blur-md shadow-lg' 
+        ? 'bg-black/95 backdrop-blur-md shadow-lg' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,22 +56,10 @@ const Navigation = () => {
                 {link.label}
               </Link>
             ))}
-            
           </div>
 
           {/* Mobile menu button */}
-      <div className="md:hidden flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className={`p-2 rounded-full hover:bg-gold/10 transition-colors duration-300 ${currentTextClass}`}
-            >
-              {isDark ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </button>
-            
+          <div className="md:hidden flex items-center space-x-4">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className={`${currentTextClass} hover:text-gold transition-colors duration-300`}
@@ -87,7 +73,7 @@ const Navigation = () => {
         <div className={`md:hidden transition-all duration-300 overflow-hidden ${
           isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
         }`}>
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-cream-light/95 dark:bg-black/95 backdrop-blur-md rounded-lg mt-2">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md rounded-lg mt-2">
             {navLinks.map((link) => (
               <Link
                 key={link.path}

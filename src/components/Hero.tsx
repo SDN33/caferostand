@@ -1,8 +1,8 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import ScrollAnimation from './ScrollAnimations';
 import HoursToggle from './HoursToggle';
+import React, { useState } from 'react';
 import profile from '../brand/profile';
 
 const Hero: React.FC = () => {
@@ -19,6 +19,7 @@ const Hero: React.FC = () => {
 
   const bgImage = profile.images?.heroFallback || '';
 
+  const [hoursOpen, setHoursOpen] = useState(false);
   return (
   <section className="relative h-screen flex items-center justify-center overflow-hidden group pt-20 sm:pt-0">
       <div className="absolute inset-0">
@@ -58,7 +59,7 @@ const Hero: React.FC = () => {
         </ScrollAnimation>
 
         <ScrollAnimation animation="fadeInUp" delay={200}>
-            <div className="mt-14 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 text-xs tracking-widest uppercase">
+            <div className="mt-10 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4 text-xs tracking-widest uppercase">
             <span className="text-gold">★ ★ ★</span>
             <span>BRASSERIE - BISTROT </span>
             <span className="hidden sm:inline text-white/70">| {profile.address?.city || ''}</span>
@@ -111,7 +112,7 @@ const Hero: React.FC = () => {
         </ScrollAnimation>
 
         <ScrollAnimation animation="fadeInUp" delay={800}>
-          <div className="mt-8 pt-6 border-t border-white/10">
+          <div className={`mt-8 pt-6 border-t border-white/10${hoursOpen ? ' mb-32 sm:mb-0' : ''}`}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/80">
               <div>
                 <div className="font-semibold">Adresse</div>
@@ -125,7 +126,7 @@ const Hero: React.FC = () => {
               </div>
               <div>
                 <div className="font-semibold mb-2">Horaires</div>
-                <HoursToggle hours={profile.hours || {}} />
+                <HoursToggle hours={profile.hours || {}} open={hoursOpen} setOpen={setHoursOpen} />
               </div>
             </div>
           </div>

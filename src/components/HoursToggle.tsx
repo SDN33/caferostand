@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 
 type Hours = {
   [day: string]: string;
 };
 
-const HoursToggle: React.FC<{ hours: Hours }> = ({ hours }) => {
-  const [open, setOpen] = useState(false);
+type Props = {
+  hours: Hours;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+};
 
+const HoursToggle: React.FC<Props> = ({ hours, open, setOpen }) => {
   const todaySummary = (() => {
     const values = Object.values(hours || {});
     return values.length ? values[0] : '';
@@ -15,7 +20,7 @@ const HoursToggle: React.FC<{ hours: Hours }> = ({ hours }) => {
   return (
     <div className="text-sm text-white/90">
       <button
-        onClick={() => setOpen((s) => !s)}
+        onClick={() => setOpen(!open)}
         aria-expanded={open}
         className="flex items-center justify-center gap-3 w-full sm:w-auto px-3 py-2 bg-white/5 hover:bg-white/10 rounded-md transition-colors duration-200"
       >
@@ -25,12 +30,12 @@ const HoursToggle: React.FC<{ hours: Hours }> = ({ hours }) => {
         ) : null}
       </button>
 
-      <div className={`mt-2 overflow-hidden transition-all duration-300 ${open ? 'max-h-72' : 'max-h-0'}`}>
-        <ul className="mt-2 space-y-1 text-white/80 text-sm">
+  <div className={`mt-2 overflow-hidden transition-all duration-300 ${open ? 'max-h-[480px] overflow-y-auto' : 'max-h-0'}`}>
+        <ul className="mt-1 space-y-0.5 text-white/80 text-xs sm:text-sm">
           {Object.entries(hours || {}).map(([day, range]) => (
-            <li key={day} className="flex justify-between px-2">
-              <span className="font-medium">{day}</span>
-              <span className="text-white/70">{range}</span>
+            <li key={day} className="flex justify-between px-1 py-0.5">
+              <span className="font-medium whitespace-nowrap">{day}</span>
+              <span className="text-white/70 whitespace-nowrap">{range}</span>
             </li>
           ))}
         </ul>
