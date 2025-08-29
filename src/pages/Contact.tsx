@@ -108,8 +108,8 @@ const Contact = () => {
                 >
                   <Facebook className="h-6 w-6 text-gold" />
                 </a>
-                <a 
-                  href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(profile.address?.full ?? "")}`}
+                <a
+                  href="https://share.google/PqadiYUc8yqC1isEp"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-gold/10 hover:bg-gold/20 rounded-full transition-colors duration-300"
