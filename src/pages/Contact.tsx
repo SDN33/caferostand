@@ -144,21 +144,30 @@ const Contact = () => {
                 Notre emplacement
               </h3>
               
-              {/* Embedded Map Placeholder */}
-              <div className="w-full h-96 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-6">
-                <div className="text-center text-gray-500 dark:text-gray-400">
-                  <MapPin className="h-12 w-12 mx-auto mb-4 text-gold" />
-                  <p>Carte interactive Google Maps</p>
-                  <p className="text-sm mt-2">
-                    15 Rue de la Gastronomie<br />
-                    75001 Paris, France
-                  </p>
+              {/* Embedded Google Map using profile.address.full */}
+              {profile.address?.full ? (
+                <div className="w-full h-96 rounded-lg overflow-hidden mb-6">
+                  <iframe
+                    title="Carte - Le Café Rostand"
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(profile.address.full)}&output=embed`}
+                    className="w-full h-full border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
                 </div>
-              </div>
+              ) : (
+                <div className="w-full h-96 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-6">
+                  <div className="text-center text-gray-500 dark:text-gray-400">
+                    <MapPin className="h-12 w-12 mx-auto mb-4 text-gold" />
+                    <p>Carte interactive Google Maps</p>
+                    <p className="text-sm mt-2">Adresse non disponible</p>
+                  </div>
+                </div>
+              )}
 
-              {/* Directions Button */}
-              <a 
-                href="https://www.google.com/maps/dir//15+Rue+de+la+Gastronomie,+75001+Paris"
+              {/* Directions Button (dynamic) */}
+              <a
+                href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(profile.address?.full ?? '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-gold hover:bg-gold/90 text-black py-3 px-6 font-medium rounded-lg transition-all duration-300 hover:scale-105 inline-block text-center"
