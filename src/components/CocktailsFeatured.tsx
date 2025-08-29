@@ -9,7 +9,7 @@ const CocktailsFeatured = () => {
           {/* Left: avatar + quote */}
           <div className="flex items-start gap-6 order-1 md:order-1">
             <ScrollAnimation animation="fadeInUp">
-                <img src="https://static.wixstatic.com/media/e5f698_b822e6c3991944ff8e9e0ae3c3610d89~mv2.jpg/v1/fill/w_450,h_616,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/unnamed%20(10).jpg" alt="Cheffe du bar Audrey" className="w-56 md:w-96 lg:w-[520px] h-auto rounded-2xl shadow-lg flex-shrink-0 object-cover bg-black" />
+                <img src="https://static.wixstatic.com/media/e5f698_b822e6c3991944ff8e9e0ae3c3610d89~mv2.jpg/v1/fill/w_450,h_616,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/unnamed%20(10).jpg" alt="Cheffe du bar Audrey" className="w-72 md:w-96 lg:w-[520px] h-auto rounded-2xl shadow-lg flex-shrink-0 object-cover bg-black" />
             </ScrollAnimation>
 
             <div>
