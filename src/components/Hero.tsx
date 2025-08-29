@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
                 <div className="text-lg sm:text-2xl font-bold text-gold">9<span className="text-base text-white">/10</span></div>
                 <div className="text-xs text-gray-200">Excellent • <span className="font-semibold">253 avis</span></div>
               </div>
-              <div className="hidden sm:flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-md overflow-hidden">
+              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-white/10 rounded-md overflow-hidden">
                 <img
                   src="https://play-lh.googleusercontent.com/-YJLx_Itkfi-13ljoVKocZ3HmhTfEGuaNqa9kQwSeLWmMTgaSYM9kGW6RWpyE84iR4w"
                   alt="TheFork logo"

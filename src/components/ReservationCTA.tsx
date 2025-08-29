@@ -66,10 +66,10 @@ const ReservationCTA = () => {
             </button>
             <button
               onClick={() => profile.links?.theFork && window.open(profile.links.theFork, '_blank', 'noopener,noreferrer')}
-              className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-full w-full max-w-xs sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 sm:px-12 py-3 sm:py-5 text-sm sm:text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-2xl rounded-full w-full max-w-xs sm:w-auto"
             >
               <img src="https://play-lh.googleusercontent.com/-YJLx_Itkfi-13ljoVKocZ3HmhTfEGuaNqa9kQwSeLWmMTgaSYM9kGW6RWpyE84iR4w" alt="TheFork" className="h-6 w-6 object-contain" />
-              <span>Via The Fork</span>
+              <span className="whitespace-nowrap">Via The Fork</span>
             </button>
           </div>
         </ScrollAnimation>
