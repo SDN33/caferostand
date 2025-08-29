@@ -1,4 +1,5 @@
 import ScrollAnimation from './ScrollAnimations';
+import ParallaxImage from './ParallaxImage';
 
 const CocktailsFeatured = () => {
   return (
@@ -30,7 +31,14 @@ const CocktailsFeatured = () => {
           <div className="order-2 md:order-2">
             <ScrollAnimation animation="fadeInUp" delay={150}>
               <div className="w-full flex justify-center">
-                <img src="https://static.wixstatic.com/media/774418_75546fbbf1c84cae9718074b7c34bd03~mv2.jpeg/v1/fit/w_1290,h_565,q_90,enc_avif,quality_auto/774418_75546fbbf1c84cae9718074b7c34bd03~mv2.jpeg" alt="Cocktail feature" className="w-64 md:w-80 lg:w-96 h-[520px] object-cover rounded-xl shadow-2xl" />
+                <div className="w-64 md:w-80 lg:w-96">
+                  <ParallaxImage
+                    src="https://static.wixstatic.com/media/774418_75546fbbf1c84cae9718074b7c34bd03~mv2.jpeg/v1/fit/w_1290,h_565,q_90,enc_avif,quality_auto/774418_75546fbbf1c84cae9718074b7c34bd03~mv2.jpeg"
+                    alt="Cocktail feature"
+                    speed={0.25}
+                    className="rounded-xl shadow-2xl"
+                  />
+                </div>
               </div>
             </ScrollAnimation>
           </div>

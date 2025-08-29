@@ -18,7 +18,6 @@ const ParallaxImage: React.FC<ParallaxImageProps> = ({ src, alt, className = '',
         const windowHeight = window.innerHeight;
         // Only animate if in viewport
         if (rect.top < windowHeight && rect.bottom > 0) {
-          const scrollY = window.scrollY || window.pageYOffset;
           const parallax = (rect.top - windowHeight / 2) * speed;
           setOffset(parallax);
         }
